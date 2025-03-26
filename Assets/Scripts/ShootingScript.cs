@@ -20,22 +20,19 @@ public class ShootingScript : MonoBehaviour
         bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 + bullet.GetComponent<Renderer>().bounds.size.y / 2;
     }
 
-    // Update is called once per frame
-    void Update()
+    // Allows player to shoot bullet.
+    public void Shoot()
     {
-        if (Input.GetButton("Fire1"))
+        float CurrentTime = Time.time;
+
+        // Delay shots fired.
+        if (CurrentTime - lastFiredTime > fireDelay)
         {
-            float CurrentTime = Time.time;
+            Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
 
-            // Delay shots fired.
-            if (CurrentTime - lastFiredTime > fireDelay)
-            {
-                Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
+            Instantiate(bullet, spawnPosition, transform.rotation);
 
-                Instantiate(bullet, spawnPosition, transform.rotation);
-
-                lastFiredTime = CurrentTime;
-            }
+            lastFiredTime = CurrentTime;
         }
     }
 

@@ -10,7 +10,7 @@ public class EnemyMoveForward : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    // Use this for initialization
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

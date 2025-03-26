@@ -16,8 +16,8 @@ public class ShootingScript : MonoBehaviour
 
     void Start()
     {
-        // Do some math to perfectly spawn bullets in front of us
-        bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
+        // Spawn bullet in front of player and define its size.
+        bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 + bullet.GetComponent<Renderer>().bounds.size.y / 2;
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class ShootingScript : MonoBehaviour
         {
             float CurrentTime = Time.time;
 
-            // Have a delay so we don't shoot too many bullets
+            // Delay shots fired.
             if (CurrentTime - lastFiredTime > fireDelay)
             {
                 Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
@@ -36,17 +36,10 @@ public class ShootingScript : MonoBehaviour
 
                 lastFiredTime = CurrentTime;
             }
-
-            //print("Shoot!");
         }
     }
 
-    /// <summary>
-    /// SampleMethod is a sample of how to use abstraction by
-    /// specification. It converts a provided integer to a float.
-    /// </summary>
-    /// <param name="number">any integer</param>
-    /// <returns>the number parameter as a float</returns>
+    // Converts integer to a float and returns float.
     public float SampleMethod(int number)
     {
         return number;

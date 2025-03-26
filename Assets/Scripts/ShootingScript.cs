@@ -17,8 +17,7 @@ public class ShootingScript : MonoBehaviour
     void Start()
     {
         // Do some math to perfectly spawn bullets in front of us
-        bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 // Half of our size
-            + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
+        bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
     }
 
     // Update is called once per frame
@@ -48,7 +47,8 @@ public class ShootingScript : MonoBehaviour
     /// </summary>
     /// <param name="number">any integer</param>
     /// <returns>the number parameter as a float</returns>
-    public float SampleMethod(int number) {
+    public float SampleMethod(int number)
+    {
         return number;
     }
 

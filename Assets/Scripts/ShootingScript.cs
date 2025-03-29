@@ -35,11 +35,4 @@ public class ShootingScript : MonoBehaviour
             lastFiredTime = CurrentTime;
         }
     }
-
-    // Converts integer to a float and returns float.
-    public float SampleMethod(int number)
-    {
-        return number;
-    }
-
 }

@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class PlayerMovementScript : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     // Variable for player speed
-    public float speed = 5000f;
+    [SerializeField]
+    public float speed = 75f;
 
     private Rigidbody2D rb;
 
@@ -16,9 +17,10 @@ public class PlayerMovementScript : MonoBehaviour
     }
 
     // Player movement on horizontal axes.
-    public void HorizontalMovement(float HorizontalInput)
+    public void Move(Vector2 direction)
     {
-        Vector2 ForceToAdd = Vector2.right * HorizontalInput * speed * Time.deltaTime;
-        rb.AddForce(ForceToAdd);
+        // Add movement to rigidbody.
+        rb.AddForce(direction * speed * Time.deltaTime);
+
     }
 }
